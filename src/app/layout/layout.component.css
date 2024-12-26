@@ -1,0 +1,189 @@
+.contain {
+ width: 100vw;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+#header {
+ width: 100vw;
+ height: 10vh;
+ background-color: aqua;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.userprofile {
+ margin-left: 1.7rem;
+}
+
+.logout {
+ margin-right: 1.7rem;
+ display: flex;
+ column-gap: 0.2rem;
+}
+
+.sub-container {
+ width: 100vw;
+ height: 90vh;
+ display: flex;
+}
+
+.list {
+ width: 20vw;
+ height: 90vh;
+ background-color: aquamarine;
+ display: flex;
+ flex-direction: column;
+ justify-content: start;
+ position: relative;
+}
+
+.chat {
+ width: 80vw;
+ height: 90vh;
+ position: relative;
+ background-color: gainsboro;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-image: url('/wallpaper.jpeg');
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+.af {
+ width: 20vw;
+ position: absolute;
+ bottom: 0;
+}
+
+.pos-abs {
+ position: absolute;
+}
+
+.abs {
+ position: absolute;
+ top: 0;
+ left: 0;
+ background-color: rgba(104, 194, 159, 0.444);
+}
+
+.add-friend-container {
+ width: 27vw;
+ height: 80vh;
+ background-color: gainsboro;
+ border: 0.2rem solid black;
+ border-radius: 0.4rem;
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.cls {
+ font-size: 2rem;
+ position: absolute;
+ top: -1rem;
+ right: -1rem;
+}
+
+.bottom {
+ width: 100%;
+ /* padding: 0.5rem; */
+ position: absolute;
+ bottom: 0px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.af-list {
+ width: 80%;
+ height: 80%;
+ background-color: white;
+ position: absolute;
+ top: 2rem;
+ border-radius: 0.2rem;
+ border: 0.1rem solid black;
+ display: flex;
+ flex-direction: column;
+ justify-content: start;
+}
+
+.main-msg {
+ width: 80%;
+ height: 2.7rem;
+ margin-bottom: 0.4rem;
+ border: 0.2rem solid aquamarine;
+ border-radius: 0.4rem;
+ position: relative;
+ display: flex;
+ align-items: center;
+}
+
+#msg {
+ width: 100%;
+ height: 100%;
+ outline: none;
+ border: none;
+ font-size: 1.7rem;
+ text-indent: 1rem;
+}
+
+.msg-icon {
+ position: absolute;
+ right: 0.4rem;
+ font-size: 1.7rem;
+ padding: 0rem 0.4rem;
+}
+
+.msg-container {
+    width: 87%;
+    height: 82%;
+    background-color: white;
+    border: 0.2rem solid  aquamarine;
+    border-radius: 2rem;
+    position: absolute;
+    top: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.1rem;
+    padding: 0.4rem;
+    justify-content: flex-end;
+    overflow-y: auto;  /* This handles scrolling for the entire container */
+    flex-grow: 1;
+}
+
+.scroll {
+    height: 100%;
+    overflow-y: auto; /* auto ensures scrollbars show when needed */
+}
+
+
+.box {
+ width: auto;
+ height: 1.7rem;
+ /* background-color: aqua; */
+ display: flex;
+
+}
+
+.start {
+ justify-content: start;
+ margin-left: 1rem;
+}
+
+.end {
+ justify-content: end;
+ margin-right: 1rem;
+}
+
+.display{
+ width: auto;
+ padding: 0rem 0.4rem;
+ border: 1px solid black;
+ background-color: beige;
+}

@@ -1,0 +1,61 @@
+<div class="full-container flex mid-flex cen-flex flex-column">
+ <div>
+  <h1 class="title">CatchApp</h1>
+ </div>
+ <div class="login-container">
+  <h1 class="header">{{headingTitle}}</h1>
+  <div class="flex flex-column col-gap-1">
+   <ng-template #commonTemplate let-content>
+    <div class="input-wrapper">
+     <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+   </ng-template>
+
+   <ng-template #username_ele>
+    <input type="text" 
+      placeholder="Username ..." [(ngModel)]="username">
+    <i class="icon fa-solid fa-circle-user" style="color: #63E6BE;"></i>
+   </ng-template>
+
+   <ng-template #password_ele>
+    <input [type]="is_password ? 'text' : 'password'" 
+      id="password" name="password" placeholder="Password ..." 
+     [(ngModel)]="password">
+    <i (click)="is_password = !is_password" [class]="is_password ? 'icon fa-solid fa-lock-open' : 'icon fa-solid fa-lock'"
+     style="color: #63E6BE;"></i>
+   </ng-template>
+
+   <ng-template #con_password_ele>
+    <input [type]="is_con_password ? 'text' : 'password'" 
+      id="password" name="password" placeholder="Confirm Password ..." 
+    [(ngModel)]="con_password">
+    <i (click)="is_con_password = !is_con_password"  [class]="is_con_password ? 'icon fa-solid fa-lock-open' : 'icon fa-solid fa-lock'"
+     style="color: #63E6BE;"></i>
+   </ng-template>
+
+   <ng-container *ngTemplateOutlet="commonTemplate; context: { $implicit: username_ele }"></ng-container>
+   <ng-container *ngTemplateOutlet="commonTemplate; context: { $implicit: password_ele }"></ng-container>
+   @if(is_signUp){
+    <ng-container *ngTemplateOutlet="commonTemplate; context: { $implicit: con_password_ele }"></ng-container>
+   }
+  </div>
+
+  <div class="flex flex-column col-gap-1">
+   <button class="btn" (click)="validation()">
+    {{btnText}} 
+  </button>
+   @if(is_signUp){
+    <p>Login Page ! <span (click)="login()">Click</span> </p>
+   }
+   @else{
+    <p>create a new Account ! <span (click)="signUp()">Click</span> </p>
+   }
+  </div>
+ </div>
+</div>
+
+@if(is_loader){
+  <div class="load">
+    <i class="fa-brands fa-battle-net fa-spin" style="color: #B197FC;"></i>
+  </div>
+}

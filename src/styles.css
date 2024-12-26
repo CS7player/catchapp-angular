@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+* {
+ margin: 0;
+ padding: 0;
+}
+
+.full-container {
+ width: 100vw;
+ height: 100vh;
+ background-color: rgb(44, 44, 44);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.flex {
+ display: flex;
+}
+
+.mid-flex {
+ justify-content: center;
+}
+
+.cen-flex {
+ align-items: center;
+}
+
+.btn {
+ font-size: 1.4rem;
+ padding: 0.2rem 0.7rem;
+}
+
+.flex-column {
+ flex-direction: column;
+}
+
+.white {
+ background-color: azure;
+ border: 2px solid blue;
+}
+
+.load {
+ width: 100vw;
+ height: 100vh;
+ background-color: rgba(127, 127, 127, 0.477);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 4rem;
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+.b-mb-1{
+    margin-bottom: 1rem;
+}

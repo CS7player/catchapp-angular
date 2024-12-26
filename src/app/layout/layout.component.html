@@ -1,0 +1,98 @@
+<div class="contain">
+
+ <div id="header">
+  <div class="userprofile">
+   <button class="btn" (click)="receiverId = ''">{{username}}</button>
+  </div>
+  <div class="title">
+    <h1>Catchapp</h1>
+  </div>
+  <div class="logout">
+    @if(receive_req_list.length>0){
+        <button class="btn" (click)="is_receive_List  = true"
+    ><i class="fa-solid fa-triangle-exclamation fa-beat"></i></button>
+    }
+    <button class="btn" (click)="logout()">Logout</button>
+  </div>
+ </div>
+
+ <div class="sub-container">
+
+    <div class="list">
+        @for (item of friend_list; track $index) {
+            <button [class]="item['_id'] == receiverId?'btn white':'btn'"
+            (click)="selectFriend(item)"
+            >{{item['username']}}</button>
+        }
+        <button class="btn bottom" (click)="is_add_friend = true">Add Friends</button>
+    </div>
+    <div class="chat">
+@if(receiverId.length >0){
+        <div class="msg-container">
+           <div class="scroll">
+
+           @for (item of chat_data; track $index) {
+
+               <div [class]="item['sender_id'] == userId? 'box end':'box start'">
+                   <div class="display">{{item['message']}}</div><p>{{item['date']}}</p>
+               </div>
+           }
+       </div>
+
+       </div>
+       <div class="bottom">
+           <div class="main-msg">
+               <input type="text" id="msg" [(ngModel)]="msgText" (keydown)="onEnterPressed($event)">
+               <button class="msg-icon" (click)="sendmsg()">
+                   <i class=" fa-solid fa-paper-plane"></i>
+               </button>
+           </div>
+           <button class="msg-icon" (click)="getChat()"><i class="fa-solid fa-arrows-rotate"></i></button>
+       </div>
+    }
+</div>
+
+ </div>
+</div>
+
+
+@if(is_add_friend){
+    <div class="full-container abs"> 
+        <div class="add-friend-container">
+            <i class="fa-solid fa-rectangle-xmark cls" (click)="is_add_friend = !is_add_friend"></i>
+            <div class="af-list">
+                @for (item of add_friend_list; track $index) {
+                        <button class="btn">
+                            {{item['username']}}
+                            <i [class]="send_req_list.includes(item['_id'])?'fa-regular fa-square-check':'fa-regular fa-square-plus'"
+                            (click)="addingfriend(item)"></i>
+                        </button>
+                }
+            </div>
+            <div class="bottom b-mb-1 ">
+                <button class="btn" (click)="sendReq()" [disabled]="!(send_req_list.length > 0)">Send</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if(is_receive_List){
+    <div class="full-container abs"> 
+        <div class="add-friend-container">
+            <i class="fa-solid fa-rectangle-xmark cls" (click)="is_receive_List = !is_receive_List"></i>
+            <div class="af-list">
+                @for (item of receive_req_list; track $index) {
+                        <button class="btn">
+                            {{item['username']}}
+                            <i [class]="selected_rec_req.includes(item['_id'])?'fa-regular fa-square-check':'fa-regular fa-square-plus'"
+                            (click)="acceptReq(item)"></i>
+                        </button>
+                }
+            </div>
+            <div class="bottom b-mb-1">
+                <button class="btn" (click)="accept()" [disabled]="!(selected_rec_req.length > 0)">Accept</button>
+            </div>
+        </div>
+    </div>
+}
